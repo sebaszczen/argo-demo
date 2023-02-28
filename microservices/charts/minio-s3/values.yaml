@@ -3,7 +3,7 @@ minio:
     enabled: false
   auth:
     existingSecret: credentials
-  fullnameOverride: s3
+  fullnameOverride: s3-demo
   resources:
     requests:
       cpu: '0.1'
