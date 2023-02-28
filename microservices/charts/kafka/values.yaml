@@ -1,0 +1,27 @@
+kafka:
+  fullnameOverride: kafka
+  zookeeper:
+    fullnameOverride: kafka-zookeeper
+  replicaCount: 3
+  advertisedListeners: INTERNAL://$(MY_POD_IP):9093,CLIENT://$(MY_POD_IP):9093
+  offsetsTopicReplicationFactor: 3 #The replication factor for the offsets topic
+  transactionStateLogMinIsr: 2 #Overridden min.insync.replicas config for the transaction topic.
+  transactionStateLogReplicationFactor: 3 #The replication factor for the transaction topic
+  defaultReplicationFactor: 3 #default replication factors for automatically created topics
+  numPartitions: 12 #The default number of log partitions per topic
+  logRetentionHours: 168
+  logRetentionBytes: "-1"
+  extraEnvVars:
+   - name: KAFKA_CFG_CONFIG_STORAGE_REPLICATION_FACTOR  #Replication factor used when creating the configuration storage topic
+     value: "3"
+   - name: KAFKA_CFG_REPLICATION_FACTOR  #Replication factor for change log topics and repartition topics created by the stream processing application
+     value: "3"
+   - name: KAFKA_CFG_MIN_INSYNC_REPLICAS #this configuration specifies the minimum number of replicas that must acknowledge a write for the write to be considered successful
+     value: "2"
+  resources:
+    limits:
+      cpu: '1'
+      memory: '4.5G'
+    requests:
+      cpu: '0.1'
+      memory: '1.5G'

@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-app
+  namespace: argocd
+  labels:
+    name: demo
+spec:
+  project: default
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/sebaszczen/gitops-certification-examples.git  # Can point to either a Helm chart repo or a git repo.
+    targetRevision: main
+    path: simple-app/ # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    # The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace
+    namespace: default
+
+  # Sync policy
+  syncPolicy:
+    automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.

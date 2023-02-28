@@ -1,0 +1,6 @@
+image:
+  repository: bitnami/postgresql
+  tag: 14.5.0-debian-11-r6
+storage: 1Gi
+postgresPassword: ps123 #username: postgres
+busyboxImage: nexus.peoplestrategy.com:8486/busybox:1.33.0
