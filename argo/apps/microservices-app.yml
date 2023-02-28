@@ -13,6 +13,9 @@ spec:
     repoURL: https://github.com/sebaszczen/argo-demo.git  # Can point to either a Helm chart repo or a git repo.
     targetRevision: master
     path: microservices/ # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+    helm:
+      # Extra parameters to set (same as setting through helm-values-local.yaml, but these take precedence)
+      parameters:
 
   # Destination cluster and namespace to deploy the application
   destination:
