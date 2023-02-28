@@ -1,4 +1,4 @@
 apiVersion: v2
-name: postgres-internal
+name: postgres
 version: 1.0.0
 
