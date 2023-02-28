@@ -9,6 +9,6 @@ dependencies:
   - name: kafka-chart
     version: 1.0.0
     repository: file://charts/kafka
-  - name: postgres
-    repository: file://charts/postgres
+  - name: minio-s3-chart
+    repository: file://charts/minio-s3
     version: 1.0.0
