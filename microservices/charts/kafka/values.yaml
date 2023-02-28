@@ -1,7 +1,7 @@
 kafka:
-  fullnameOverride: kafka
+  fullnameOverride: kafka-demo
   zookeeper:
-    fullnameOverride: kafka-zookeeper
+    fullnameOverride: kafka-zookeeper-demo
   replicaCount: 3
   advertisedListeners: INTERNAL://$(MY_POD_IP):9093,CLIENT://$(MY_POD_IP):9093
   offsetsTopicReplicationFactor: 3 #The replication factor for the offsets topic
