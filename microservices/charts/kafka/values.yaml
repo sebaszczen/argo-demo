@@ -2,7 +2,7 @@ kafka:
   fullnameOverride: kafka-demo
   zookeeper:
     fullnameOverride: kafka-zookeeper-demo
-  replicaCount: 1
+  replicaCount: 2
   advertisedListeners: INTERNAL://$(MY_POD_IP):9093,CLIENT://$(MY_POD_IP):9093
   offsetsTopicReplicationFactor: 3 #The replication factor for the offsets topic
   transactionStateLogMinIsr: 2 #Overridden min.insync.replicas config for the transaction topic.
